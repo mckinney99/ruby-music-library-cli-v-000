@@ -58,7 +58,8 @@ class MusicImporter
    end
 
    def list_artists
-     Artist.all.each_with_index {|s, k| puts "#{k+1}. #{s.name}" }
+     list = Artist.all.sort_by {|artist|artist.name}
+     list.each_with_index {|artist, i| puts "#{i + 1}. #{artist.name}"}
    end
 
    def list_genres
