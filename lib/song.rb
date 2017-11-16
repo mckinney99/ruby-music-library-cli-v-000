@@ -4,7 +4,7 @@ class Song
 
 
   extend Concerns::Findable
-  include Concerns::InstanceHelper
+
 
   attr_accessor :name, :artist, :genre
 
