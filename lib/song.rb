@@ -1,4 +1,10 @@
++require_relative '../config/environment'
+
 class Song
+
+  extend Concerns::ClassHelper
+  extend Concerns::Findable
+  include Concerns::InstanceHelper
 
   attr_accessor :name, :artist, :genre
 
