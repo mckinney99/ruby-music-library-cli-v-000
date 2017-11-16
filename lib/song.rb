@@ -64,4 +64,9 @@ def self.find_by_name(name)
     check
   end
 
+  def self.create_from_filename(name)
+    file = Song.new_from_filename(name)
+    @@all << file 
+    file
+
 end
