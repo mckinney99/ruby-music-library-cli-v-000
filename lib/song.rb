@@ -51,11 +51,16 @@ def self.find_by_name(name)
     self.find_by_name(name)? self.find_by_name(name) : self.create(name)
   end
 
-  def self.new_from_filename(name)
-    name = name.chomp(".mp3").split(" - ")
-    check = find_by_name(name)
-    return Song.new(name[1], Artist.find_or_create_by_name(name[0]), Genre.find_or_create_by_name(name[2])) if check.nil?
-    check
+  #def self.new_from_filename(name)
+    #name = name.chomp(".mp3").split(" - ")
+    #check = find_by_name(name)
+    #return Song.new(name[1], Artist.find_or_create_by_name(name[0]), Genre.find_or_create_by_name(name[2])) if check.nil?
+    #check
+  #end
+
+  def self.new_from_filename(filename)
+     filename_split = filename.split(" - ")
+      self.new(filename_split[1], filename_split[0], filename_split[2].chomp(".mp3"))
   end
 
 end
